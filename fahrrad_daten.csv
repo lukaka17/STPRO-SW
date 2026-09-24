@@ -1,0 +1,11 @@
+﻿fahrrad_id,fahrradtyp,preis,verfuegbar,standort
+1001,Citybike,12.50,true,Praterstern
+1002,Mountainbike,18.00,false,Donauzentrum
+1003,E-Bike,25.90,true,Hauptbahnhof
+1004,Trekkingrad,16.50,true,Schwedenplatz
+1005,Citybike,11.90,false,Westbahnhof
+1006,Mountainbike,19.50,true,Donauinsel
+1007,E-Bike,27.00,true,Karlsplatz
+1008,Trekkingrad,15.90,false,Heiligenstadt
+1009,Citybike,12.00,true,Floridsdorf
+1010,Mountainbike,20.00,true,Seestadt
