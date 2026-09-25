@@ -1,0 +1,11 @@
+﻿ID,Fahrradtyp,Preis,Verfuegbarkeit,Standort
+BK-101,City-Bike,4.50 €/Std,verfuegbar,Stephansplatz
+BK-102,E-Bike,7.50 €/Std,verfuegbar,Hauptbahnhof
+BK-103,Mountainbike,6.00 €/Std,ausgeborgt,Praterstern
+BK-104,E-Bike,7.50 €/Std,verfuegbar,Stephansplatz
+BK-105,City-Bike,4.50 €/Std,verfuegbar,Schwedenplatz
+BK-106,Trekkingbike,5.50 €/Std,ausgeborgt,Praterstern
+BK-107,Lastenrad,8.00 €/Std,verfuegbar,Karlsplatz
+BK-108,E-Bike,7.50 €/Std,verfuegbar,Hauptbahnhof
+BK-109,City-Bike,4.00 €/Std,verfuegbar,Westbahnhof
+BK-110,Mountainbike,6.00 €/Std,ausgeborgt,Karlsplatz
