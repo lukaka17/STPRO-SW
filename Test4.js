@@ -1,46 +1,26 @@
-// test4.js
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
 
-// Funktion zum Einlesen und Ausgeben des Datensatzes
-function readAndDisplayBicycles(csvFileName) {
-    // Erstellt den Pfad relativ zum Speicherort von test4.js
-    const filePath = path.join(__dirname, csvFileName);
+function readFahrradData(filePath) {
+    const data = fs.readFileSync(filePath, "utf8");
 
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error(`Fehler: Die Datei "${csvFileName}" konnte nicht gefunden werden!`, err);
-            console.log("Hinweis: Stelle sicher, dass fahrraeder.csv im selben Ordner wie test4.js liegt.");
-            return;
-        }
+    const lines = data.trim().split("\n");
+    const headers = lines[0].split(",");
 
-        // Zeilen aufteilen und leere Zeilen entfernen
-        const lines = data.trim().split('\n');
-        
-        // Header (Spaltenüberschriften) extrahieren
-        const headers = lines[0].split(',').map(header => header.trim());
+    const fahrraeder = lines.slice(1).map(line => {
+        const values = line.split(",");
 
-        // Datenzeilen in einzelne JavaScript-Objekte umwandeln
-        const dataset = lines.slice(1).map(line => {
-            const values = line.split(',').map(val => val.trim());
-            let item = {};
-            headers.forEach((header, index) => {
-                item[header] = values[index];
-            });
-            return item;
-        });
-
-        // 1. Gesamten Datensatz als Array anzeigen
-        console.log("=== GELADENER DATASET ===");
-        console.log(dataset);
-
-        // 2. Einzelne Objekte nacheinander ausgeben (wie in der Übung gefordert)
-        console.log("\n=== EINZELNE FAHRRAD-OBJEKTE ===");
-        dataset.forEach((bike, i) => {
-            console.log(`[Objekt ${i + 1}]`, bike);
-        });
+        return {
+            fahrrad_id: parseInt(values[0]),
+            fahrradtyp: values[1],
+            preis: parseFloat(values[2]),
+            verfuegbar: values[3].trim() === "true",
+            standort: values[4].trim()
+        };
     });
+
+    return fahrraeder;
 }
 
-// Aufruf der Funktion mit deiner CSV-Datei
-readAndDisplayBicycles('fahrraeder.csv');
+const fahrraeder = readFahrradData("fahrrad_daten.csv");
+
+console.log(fahrraeder);
